@@ -8,7 +8,7 @@ from .serializers import AccountSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.exceptions import InvalidToken, TokenError
 
-
+# temp login {"email":"example@gmail.com", "password":"11111111"}
 
 # Login View
 class LoginView(APIView):
@@ -57,7 +57,10 @@ class ProfileView(APIView):
     def get(self, request):
         return Response({
             "email": request.user.email,
-            "name": request.user.name
+            "name": request.user.name,
+            "phone": request.user.phone,
+            "avatar_url": request.user.avatar_url,
+            "created_at": request.user.created_at
         })
 
 
